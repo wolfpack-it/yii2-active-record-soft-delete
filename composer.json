@@ -1,0 +1,33 @@
+{
+  "name": "wolfpack-it/yii2-active-record-soft-delete",
+  "description": "Yii2 Active Record - Soft delete",
+  "type": "library",
+  "require": {
+    "php": ">=7.1.0",
+    "yiisoft/yii2": "~2.0.19"
+  },
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Joey Claessen",
+      "email": "joey_claessen@hotmail.com"
+    },
+    {
+      "name": "Evgeni Govedarov",
+      "email": "egovedarov@yahoo.bg"
+    }
+  ],
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://asset-packagist.org"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "WolfpackIT\\softDelete\\": [
+        "src/"
+      ]
+    }
+  }
+}
