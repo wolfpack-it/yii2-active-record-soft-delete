@@ -2,6 +2,7 @@
 
 namespace WolfpackIT\softDelete\queries;
 
+use WolfpackIT\softDelete\traits\SoftDeleteActiveQueryTrait;
 use yii\db\ActiveQuery;
 
 /**
@@ -10,19 +11,5 @@ use yii\db\ActiveQuery;
  */
 class SoftDeleteActiveQuery extends ActiveQuery
 {
-    /**
-     * @return SoftDeleteActiveQuery
-     */
-    public function notDeleted(): self
-    {
-        return $this->andWhere([(new $this->modelClass())->deletedAtAttribute() => null]);
-    }
-
-    /**
-     * @return SoftDeleteActiveQuery
-     */
-    public function deleted(): self
-    {
-        return $this->andWhere(['not', [(new $this->modelClass())->deletedAtAttribute() => null]]);
-    }
+    use SoftDeleteActiveQueryTrait;
 }
