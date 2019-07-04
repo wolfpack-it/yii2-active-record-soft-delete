@@ -6,12 +6,12 @@ use WolfpackIT\softDelete\queries\SoftDeleteActiveQuery;
 use yii\db\StaleObjectException;
 
 /**
- * Trait SoftDelete
+ * Trait SoftDeleteTrait
  * @package WolfpackIT\softDelete\traits
  *
  * @property-read bool $isDeleted
  */
-trait SoftDelete
+trait SoftDeleteTrait
 {
     abstract public function afterDelete();
 
