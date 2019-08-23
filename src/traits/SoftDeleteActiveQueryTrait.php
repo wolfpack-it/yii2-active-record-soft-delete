@@ -15,7 +15,7 @@ trait SoftDeleteActiveQueryTrait
      */
     public function notDeleted(): self
     {
-        return $this->andWhere([(new $this->modelClass())->deletedAtAttribute() => null]);
+        return $this->andWhere([(new $this->modelClass())->deletedAtTableColumn() => null]);
     }
 
     /**
@@ -23,6 +23,6 @@ trait SoftDeleteActiveQueryTrait
      */
     public function deleted(): self
     {
-        return $this->andWhere(['not', [(new $this->modelClass())->deletedAtAttribute() => null]]);
+        return $this->andWhere(['not', [(new $this->modelClass())->deletedAtTableColumn() => null]]);
     }
 }
