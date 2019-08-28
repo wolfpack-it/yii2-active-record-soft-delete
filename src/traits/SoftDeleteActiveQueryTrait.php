@@ -13,16 +13,22 @@ trait SoftDeleteActiveQueryTrait
     /**
      * @return SoftDeleteActiveQuery
      */
-    public function notDeleted(): self
+    public function notDeleted($alias = null): self
     {
-        return $this->andWhere([(new $this->modelClass())->deletedAtAttribute() => null]);
+        $column = is_null($alias)
+            ? (new $this->modelClass())->deletedAtTableColumn()
+            : ($alias ? $alias . '.' : '') . (new $this->modelClass())->deletedAtAttribute();
+        return $this->andWhere([$column => null]);
     }
 
     /**
      * @return SoftDeleteActiveQuery
      */
-    public function deleted(): self
+    public function deleted($alias = null): self
     {
-        return $this->andWhere(['not', [(new $this->modelClass())->deletedAtAttribute() => null]]);
+        $column = is_null($alias)
+            ? (new $this->modelClass())->deletedAtTableColumn()
+            : ($alias ? $alias . '.' : '') . (new $this->modelClass())->deletedAtAttribute();
+        return $this->andWhere(['not', [$column => null]]);
     }
 }
