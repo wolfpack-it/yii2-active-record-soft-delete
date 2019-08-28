@@ -28,6 +28,14 @@ trait SoftDeleteTrait
     }
 
     /**
+     * @return string
+     */
+    public function deletedAtTableColumn(): string
+    {
+        return self::tableName() . ".[[{$this->deletedAtAttribute()}]]";
+    }
+
+    /**
      * @return bool
      * @throws StaleObjectException
      */
