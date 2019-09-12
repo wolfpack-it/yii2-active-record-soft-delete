@@ -32,7 +32,7 @@ trait SoftDeleteTrait
      */
     public function deletedAtTableColumn(): string
     {
-        return self::tableName() . ".[[{$this->deletedAtAttribute()}]]";
+        return static::tableName() . ".[[{$this->deletedAtAttribute()}]]";
     }
 
     /**
