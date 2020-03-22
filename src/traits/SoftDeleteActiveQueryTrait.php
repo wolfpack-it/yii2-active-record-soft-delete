@@ -2,6 +2,7 @@
 
 namespace WolfpackIT\softDelete\traits;
 
+use WolfpackIT\softDelete\interfaces\SoftDeleteActiveQueryInterface;
 use WolfpackIT\softDelete\queries\SoftDeleteActiveQuery;
 
 /**
@@ -11,9 +12,9 @@ use WolfpackIT\softDelete\queries\SoftDeleteActiveQuery;
 trait SoftDeleteActiveQueryTrait
 {
     /**
-     * @return SoftDeleteActiveQuery
+     * @return SoftDeleteActiveQueryInterface
      */
-    public function notDeleted($alias = null): self
+    public function notDeleted($alias = null): SoftDeleteActiveQueryInterface
     {
         $column = is_null($alias)
             ? (new $this->modelClass())->deletedAtTableColumn()
@@ -22,9 +23,9 @@ trait SoftDeleteActiveQueryTrait
     }
 
     /**
-     * @return SoftDeleteActiveQuery
+     * @return SoftDeleteActiveQueryInterface
      */
-    public function deleted($alias = null): self
+    public function deleted($alias = null): SoftDeleteActiveQueryInterface
     {
         $column = is_null($alias)
             ? (new $this->modelClass())->deletedAtTableColumn()

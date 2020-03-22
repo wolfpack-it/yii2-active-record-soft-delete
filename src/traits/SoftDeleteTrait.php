@@ -2,6 +2,7 @@
 
 namespace WolfpackIT\softDelete\traits;
 
+use WolfpackIT\softDelete\interfaces\SoftDeleteActiveQueryInterface;
 use WolfpackIT\softDelete\queries\SoftDeleteActiveQuery;
 use yii\db\StaleObjectException;
 
@@ -66,10 +67,10 @@ trait SoftDeleteTrait
     }
 
     /**
-     * @return SoftDeleteActiveQuery
+     * @return SoftDeleteActiveQueryInterface
      * @throws \yii\base\InvalidConfigException
      */
-    public static function find(): SoftDeleteActiveQuery
+    public static function find()
     {
         return \Yii::createObject(SoftDeleteActiveQuery::class, [get_called_class()]);
     }
